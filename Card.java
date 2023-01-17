@@ -13,7 +13,6 @@ public class Card extends Actor
    private boolean isSelected;
    private GreenfootImage cardImage,selectedCardImage;
    private int numberOfShapes,shading;
-   
    public Card(Shape shape, Color color, int numberOfShapes, int shading, 
    GreenfootImage cardImage, GreenfootImage selectedCardImage)
    {
@@ -30,30 +29,37 @@ public class Card extends Actor
    {
        TRIANGLE,SQUARE,CIRCLE,NO_SHAPE
    }
+   
    public enum Color
    {
        RED, GREEN, BLUE, NO_COLOR
    }
+   
    public Shape getShape()
    {
        return shape;
    }
+   
    public Color getColor()
    {
        return color;
    }
+   
    public int getNumberOfShapes()
    {
        return numberOfShapes;
    }
+   
    public int getShading()
    {
        return shading;
    }
+   
    public GreenfootImage getCardImage()
    {
        return cardImage;
    }
+   
    public GreenfootImage getSelectedCardImage()
    {
        return selectedCardImage;
@@ -62,6 +68,7 @@ public class Card extends Actor
    {
        return isSelected;
    }
+   
    public void setIsSelected(boolean isSelected)
    {
        this.isSelected = isSelected;
