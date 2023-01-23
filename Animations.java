@@ -1,8 +1,8 @@
 /**
  * Write a description of class Animations here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Becky
+ * @01/19/2023
  */
 public class Animations  
 {
@@ -14,7 +14,11 @@ public class Animations
      */
     public Animations()
     {
-        
+        public static void wobble()
+        {
+            Card = card;
+        }
+        public static void slideAndTurn
     }
 
     /**
