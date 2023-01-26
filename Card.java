@@ -1,5 +1,4 @@
 import greenfoot.*; 
-
 /**
  * Game Board for Triples
  * 

@@ -4,7 +4,6 @@
  * @Becky
  * @01/19/2023
  */
-
 import greenfoot.*;
 import java.util.ArrayList;
 public class Deck 
@@ -16,22 +15,22 @@ public class Deck
         return shuffledDeck.size();
         //keeps track of how many unused cards remain in the deck.
     }
-    public int getTopCard()
+    public Card getTopCard()
     {
-        return shuffleDeck;
+        return shuffledDeck.remove(0);
         //returns the top card of the deck as the cards are dealt.
     }
-    public int getShuffledCard()
+    public Card getShuffledCard(int numOfCardsIhDeck)
     {
-        return Math.random;
+        return shuffledDeck.get(numOfCardsInDeck);
         //returns a card at a specific location in the deck.
     }
-    public int getShuffledDeck()
+    public ArrayList<Card> getShuffledDeck()
     {
-        return deck;
+        return shuffledDeck;
         //returns the entire shuffled deck.
     }
-    public int limitNumCardsInDeck()
+    public int limitNumCardsInDeck(int numOfCardsInDeck)
     {
         if (numOfCardsInDeck<= 27)
         {
@@ -47,7 +46,7 @@ public class Deck
     {
         for(Card card : unShuffledDeck)
         {
-            shuffleDeck.add(int)(Math.random() *
+            shuffledDeck.add((int)(Math.random() *
                             (shuffledDeck.size())),card);
         }
         shuffledDeck.remove(shuffledDeck.size()-1);
