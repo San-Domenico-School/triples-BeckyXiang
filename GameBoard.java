@@ -17,13 +17,7 @@ public class GameBoard extends World
         addObject(dealer,-30, -30);
 
     }
-    private void setUI()
-    {
-        String cardsRemainingText = new Integer(triplesRemaining * 3).toString();
-        String scoreText = new Integer(Scorekeeper.getScore()).toString();
-        getWorld().showText(cardsRemainingText, 310, 470);
-        getWorld().showText(scoreText, 310, 504);  
-    }
+
 
 
 

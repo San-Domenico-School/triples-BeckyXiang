@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class Deck 
 {
     private Card [] unShuffledDeck;
-    private ArrayList shuffledDeck;
+    private ArrayList <Card> shuffledDeck;
+    
     public int getNumCardsInDeck()
     {
         return shuffledDeck.size();
@@ -20,7 +21,7 @@ public class Deck
         return shuffledDeck.remove(0);
         //returns the top card of the deck as the cards are dealt.
     }
-    public Card getShuffledCard(int numOfCardsIhDeck)
+    public Card getShuffledCard(int numOfCardsInDeck)
     {
         return shuffledDeck.get(numOfCardsInDeck);
         //returns a card at a specific location in the deck.
@@ -52,6 +53,7 @@ public class Deck
         shuffledDeck.remove(shuffledDeck.size()-1);
         //shuffles the unshuffled deck to form the shuffled deck
     }
+    
     Deck(int numOfCardsInDeck)
     {
         numOfCardsInDeck = limitNumCardsInDeck(numOfCardsInDeck);  // limits size to 27 or 81        
@@ -60,6 +62,7 @@ public class Deck
         populateUnshuffledDeckWithCards(numOfCardsInDeck);         // Initializes Unshuffled Deck
         createShuffledDeck();                                      // Initializes shuffled deck excluding blank card
     }
+    
     private void populateUnshuffledDeckWithCards(int numOfCardsInDeck)        
     {
         //initializes all the cards to the unshuffled deck.
