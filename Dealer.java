@@ -4,8 +4,8 @@ import java.util.ArrayList;
 /**
  * Write a description of class Dealer here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Becky
+ * @02/01/2023
  */
 public class Dealer extends Actor
 {
@@ -14,7 +14,7 @@ public class Dealer extends Actor
     private ArrayList selectedCardsIndex;
     private int triplesRemaining;
     private Deck deck;
-    
+    private ArrayList checkIfTriple;
     public Dealer(int numCardsInDeck)
     {
         deck = new Deck(numCardsInDeck);
@@ -60,5 +60,35 @@ public class Dealer extends Actor
     private void removeAndRepleaceTriple(ArrayList<Card> cardsOnBoard,Card[]cardsSelected,
                                ArrayList<Integer>selectedCardsIndex)
     {
+        //Set position of triple cards by coordinate, 3 cards by 2 coordinates
+        int[][]cardsXYCoordinate = new int[3][2];
+        for(int card = 0; card < 3; card++)
+        {
+            cardsXYCoordinate[card][0] = cardsSelected[card].getX();
+            cardsXYCoordinate[card][1] = cardsSelected[card].getY();
+        }
     }
+    
+    //Begin card animation off scene view
+    Animations.slideAndTurn(cardsSelected);
+    
+    //Remove and replace triple cards
+    for(int card = 0; card < 3; card++)
+    {
+        getWorld().removeObject(cardsSelected[card]);
+        if(deck.getNumCardsInDeck() > 0)
+        {
+            cardsOnBoard.set(selectedCardsIndex.get(card).deck.getToopCard());
+            getWorld().addObject(cardsOnBoard.get(selectedCardsIndec.get(card)),
+                                                  cardsXYCoordinate[card][0],
+                                                  cardsXYCoordinate[card][1]);
+        }
+    }
+    
+    // UI Housekeeping
+    triplesRemaining--;
+    Scorekeeper.updateScore();
+    setUI();
+    checkIfEndGame();
+}
 }
