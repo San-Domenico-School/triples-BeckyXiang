@@ -51,7 +51,7 @@ public class Dealer extends Actor
         
     }
     
-    private void checkIfTriple(ArrayList<Card> cardsOnBoard,Card[]cardsSelected,
+    public void checkIfTriple(ArrayList<Card> cardsOnBoard,Card[]cardsSelected,
                                ArrayList<Integer>selectedCardsIndex)
     {
         
@@ -67,28 +67,27 @@ public class Dealer extends Actor
             cardsXYCoordinate[card][0] = cardsSelected[card].getX();
             cardsXYCoordinate[card][1] = cardsSelected[card].getY();
         }
-    }
     
-    //Begin card animation off scene view
-    Animations.slideAndTurn(cardsSelected);
-    
-    //Remove and replace triple cards
-    for(int card = 0; card < 3; card++)
-    {
-        getWorld().removeObject(cardsSelected[card]);
-        if(deck.getNumCardsInDeck() > 0)
+        //Begin card animation off scene view
+        Animations.slideAndTurn(cardsSelected);
+        
+        //Remove and replace triple cards
+        for(int card = 0; card < 3; card++)
         {
-            cardsOnBoard.set(selectedCardsIndex.get(card).deck.getToopCard());
-            getWorld().addObject(cardsOnBoard.get(selectedCardsIndec.get(card)),
-                                                  cardsXYCoordinate[card][0],
-                                                  cardsXYCoordinate[card][1]);
+            getWorld().removeObject(cardsSelected[card]);
+            if(deck.getNumCardsInDeck() > 0)
+            {
+                cardsOnBoard.set(selectedCardsIndex.get(card),deck.getTopCard());
+                getWorld().addObject(cardsOnBoard.get(selectedCardsIndex.get(card)),
+                                                      cardsXYCoordinate[card][0],
+                                                      cardsXYCoordinate[card][1]);
+            }
         }
+        
+        // UI Housekeeping
+        triplesRemaining--;
+        Scorekeeper.updateScore();
+        setUI();
+        checkIfEndGame();
     }
-    
-    // UI Housekeeping
-    triplesRemaining--;
-    Scorekeeper.updateScore();
-    setUI();
-    checkIfEndGame();
-}
 }
