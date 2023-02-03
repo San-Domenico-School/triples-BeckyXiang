@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class Player here.
+ * Player class
  * 
- * @Becky
+ * @Becky Xiang
  * @01/31/2023
  */
 public class Player extends Actor
@@ -13,11 +13,22 @@ public class Player extends Actor
     private ArrayList<Card> cardsOnBoard;
     private ArrayList<Integer> selectedCardsIndex;
     
+    public Player(Dealer dealer)
+    {
+       this.dealer = dealer;
+       cardsSelected = new Card[3];
+       cardsOnBoard = new ArrayList<Card>();
+       selectedCardsIndex = new ArrayList<Integer>();
+    }
+    
     public void act()
     {
         selectCards();
-        dealer.checkIfTriple (cardsOnBoard,cardsSelected,selectedCardsIndex);
-        resetCardsSelected();
+        if(threeCardsSelected())
+        {
+            dealer.checkIfTriple (cardsOnBoard,cardsSelected,selectedCardsIndex);
+            resetCardsSelected();
+        }
     }
     
     public void addedToWorld(World world)

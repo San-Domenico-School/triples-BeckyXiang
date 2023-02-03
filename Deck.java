@@ -1,5 +1,5 @@
 /**
- * Write a description of class Deck here.
+ * Deck class
  * 
  * @Becky
  * @01/19/2023

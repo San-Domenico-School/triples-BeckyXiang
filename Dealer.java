@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class Dealer here.
+ * Dealer class
  * 
  * @Becky
  * @02/01/2023
@@ -43,7 +43,7 @@ public class Dealer extends Actor
         String cardsRemainingText = new Integer(triplesRemaining * 3).toString();
         String scoreText = new Integer(Scorekeeper.getScore()).toString();
         getWorld().showText(cardsRemainingText, 310, 470);
-        getWorld().showText(scoreText, 310,584);
+        getWorld().showText(scoreText, 310,504);
     }
     
     private void checkIfEndGame()
@@ -54,7 +54,26 @@ public class Dealer extends Actor
     public void checkIfTriple(ArrayList<Card> cardsOnBoard,Card[]cardsSelected,
                                ArrayList<Integer>selectedCardsIndex)
     {
-        
+        int shapes = cardsSelected[0].getShape().ordinal() +
+                     cardsSelected[1].getShape().ordinal() +
+                     cardsSelected[2].getShape().ordinal();
+        int shadings = cardsSelected[0].getShading() +
+                       cardsSelected[1].getShading() +
+                       cardsSelected[2].getShading();
+        int colors = cardsSelected[0].getColor().ordinal() +
+                     cardsSelected[1].getColor().ordinal() +
+                     cardsSelected[2].getColor().ordinal();
+        int numbersOfShapes = cardsSelected[0].getNumberOfShapes() +
+                              cardsSelected[1].getNumberOfShapes() +
+                              cardsSelected[2].getNumberOfShapes();
+        if(shapes % 3 == 0 && shadings % 3 == 0 && colors % 3 == 0 && numbersOfShapes % 3 == 0)
+        {
+            removeAndRepleaceTriple(cardsOnBoard, cardsSelected, selectedCardsIndex);
+        }
+        else
+        {
+            Animations.wobble(cardsSelected);
+        }
     }
     
     private void removeAndRepleaceTriple(ArrayList<Card> cardsOnBoard,Card[]cardsSelected,

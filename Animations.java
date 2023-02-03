@@ -1,6 +1,6 @@
 import greenfoot.*;
 /**
- * Write a description of class Animations here.
+ * Animations class
  * 
  * @Becky
  * @01/19/2023

@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Game Board for Triples
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Becky
+ * @01/27/2023
  */
 public class GameBoard extends World
 {
